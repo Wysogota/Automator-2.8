@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayName</key>
+	<string>Automator</string>
+	<key>ImagePath</key>
+	<string>/Applications/Automator.app/Contents/Resources/Automator.icns</string>
+	<key>Type</key>
+	<string>app</string>
+	<key>SyncsWith</key>
+	<dict>
+		<key>SyncAlertTypes</key>
+		<array>
+			<string>app</string>
+			<string>server</string>
+		</array>
+	</dict>	
+	<key>Entities</key>
+	<dict>
+		<key>com.apple.automator.library.variable</key>
+		<array>
+			<string>com.apple.syncservices.RecordEntityName</string>
+			<string>properties</string>
+		</array>
+	</dict>
+</dict>
+</plist>

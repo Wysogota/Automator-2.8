@@ -1,0 +1,167 @@
+{
+    AppleEventCode = otto; 
+    Classes = {
+        AMDocument = {
+            AppleEventCode = wkfw; 
+            Attributes = {
+                currentAction = {AppleEventCode = cact; ReadOnly = YES; Type = "Automator.AMScriptingAction"; }; 
+                errorMessage = {AppleEventCode = xerm; ReadOnly = YES; Type = NSString; }; 
+                errorNumber = {AppleEventCode = xern; ReadOnly = YES; Type = NSNumber; }; 
+                name = {AppleEventCode = pnam; ReadOnly = YES; Type = NSString; }; 
+                result = {AppleEventCode = xrsl; ReadOnly = YES; Type = NSObject; }; 
+                executionID = {AppleEventCode = xidx; ReadOnly = YES; Type = NSString; }; 
+            }; 
+            Superclass = "NSDocument"; 
+            SupportedCommands = {
+                "Automator.execute" = "executeCommand:"; 
+                "NSCoreSuite.Save" = "saveCommand:"; 
+            }; 
+            ToManyRelationships = {
+                actions = {
+                    AppleEventCode = actz; 
+                    LocationRequiredToCreate = NO; 
+                    Type = AMScriptingAction; 
+                };
+				variables = {
+                    AppleEventCode = vari; 
+                    LocationRequiredToCreate = NO; 
+                    Type = "Automator.AMScriptingVariable"; 
+                };  
+            }; 
+        }; 
+        AMScriptingAction = {
+            AppleEventCode = actz; 
+            Attributes = {
+                accepts = {AppleEventCode = inty; ReadOnly = YES; Type = NSArray; }; 
+                actionIconName = {AppleEventCode = icnm; ReadOnly = YES; Type = NSString; }; 
+                application = {AppleEventCode = tapp; ReadOnly = YES; Type = NSArray; }; 
+                category = {AppleEventCode = ctgy; ReadOnly = YES; Type = NSArray; }; 
+                enabled = {AppleEventCode = enaB; ReadOnly = NO; Type = "NSNumber<Bool>"; }; 
+                errorMessage = {AppleEventCode = xerm; ReadOnly = YES; Type = NSString; }; 
+                errorNumber = {AppleEventCode = xern; ReadOnly = YES; Type = NSNumber; };
+				objectID = {AppleEventCode = "ID  "; ReadOnly = YES; Type = NSString; }; 
+                bundleID = {AppleEventCode = bnid; ReadOnly = YES; Type = NSString; };
+				keywords = {AppleEventCode = kywd; ReadOnly = YES; Type = NSArray; };
+				comment = {AppleEventCode = comt; ReadOnly = NO; Type = NSString; }; 
+                name = {AppleEventCode = pnam; ReadOnly = YES; Type = NSString; }; 
+                index = {AppleEventCode = pidx; ReadOnly = NO; Type = NSNumber; };
+                parentWorkflow = {AppleEventCode = pwkf; ReadOnly = YES; Type = "Automator.AMDocument"; };
+                provides = {AppleEventCode = outy; ReadOnly = YES; Type = NSArray; }; 
+                result = {AppleEventCode = xrsl; ReadOnly = YES; Type = NSObject; }; 
+                version = {AppleEventCode = vers; ReadOnly = YES; Type = NSString; }; 
+                warningAction = {AppleEventCode = wact; ReadOnly = YES; Type = NSString; }; 
+                warningLevel = {AppleEventCode = wlev; ReadOnly = YES; Type = "NSNumber<WarningLevels>"; }; 
+                warningMessage = {AppleEventCode = wmsg; ReadOnly = YES; Type = NSString; }; 
+                path = {AppleEventCode = ppth; ReadOnly = YES; Type = "NSString<FilePath>"; }; 
+                showWhenRun = {AppleEventCode = shwr; ReadOnly = NO; Type = "NSNumber<Bool>"; }; 
+                ignoresInput = {AppleEventCode = igin; ReadOnly = NO; Type = "NSNumber<Bool>"; }; 
+            }; 
+            Superclass = "NSCoreSuite.AbstractObject"; 
+            SupportedCommands = {"Automator.add" = "add:"; "Automator.remove" = "remove:"; }; 
+            ToManyRelationships = {
+                requiredResources = {
+                    AppleEventCode = reqr; 
+                    LocationRequiredToCreate = NO; 
+                    Type = "Automator.AMScriptingRequiredResource"; 
+                }; 
+                settings = {
+                    AppleEventCode = stng; 
+                    LocationRequiredToCreate = NO; 
+                    Type = "Automator.AMScriptingSetting"; 
+                }; 
+            }; 
+        }; 
+        AMScriptingRequiredResource = {
+            AppleEventCode = reqr; 
+            Attributes = {
+                name = {AppleEventCode = pnam; ReadOnly = YES; Type = NSString; }; 
+                resource = {AppleEventCode = rsrc; ReadOnly = YES; Type = NSString; }; 
+                type = {AppleEventCode = kind; ReadOnly = YES; Type = NSString; }; 
+                version = {AppleEventCode = vers; ReadOnly = YES; Type = NSNumber; }; 
+            }; 
+            Superclass = "NSCoreSuite.AbstractObject"; 
+        }; 
+        AMScriptingSetting = {
+            AppleEventCode = stng; 
+            Attributes = {
+                defaultValue = {AppleEventCode = dval; ReadOnly = YES; Type = NSObject; }; 
+                name = {AppleEventCode = pnam; ReadOnly = YES; Type = NSString; }; 
+                value = {AppleEventCode = pval; ReadOnly = NO; Type = NSObject; }; 
+            }; 
+            Superclass = "NSCoreSuite.AbstractObject"; 
+        }; 
+        AMAutomatorApplication = {
+            AppleEventCode = capp; 
+            Superclass = "NSApplication"; 
+            ToManyRelationships = {
+                actions = {
+                    AppleEventCode = actz; 
+                    LocationRequiredToCreate = NO; 
+                    Type = "Automator.AMScriptingAction"; 
+                }; 
+                workflows = {
+                    AppleEventCode = wkfw; 
+                    LocationRequiredToCreate = NO; 
+                    Type = "Automator.AMDocument"; 
+                }; 
+				variables = {
+                    AppleEventCode = vari; 
+                    LocationRequiredToCreate = NO; 
+                    Type = "Automator.AMScriptingVariable"; 
+                }; 
+            }; 
+        };
+		AMScriptingVariable = {
+           AppleEventCode = vari; 
+           Superclass = "NSCoreSuite.AbstractObject"; 
+           Attributes = {
+                objectID = {AppleEventCode = "ID  "; ReadOnly = YES; Type = NSString; }; 
+                name = {AppleEventCode = pnam; ReadOnly = NO; Type = NSString; }; 
+                value = {AppleEventCode = pval; ReadOnly = NO; Type = NSObject; }; 
+                settable = {AppleEventCode = stbl; ReadOnly = YES; Type = "NSNumber<Bool>"; }; 
+            }; 
+			SupportedCommands = {"Automator.add" = "add:"; "Automator.remove" = "remove:"; }; 
+        };  
+    }; 
+    Commands = {
+        add = {
+            AppleEventClassCode = otto; 
+            AppleEventCode = "add "; 
+            Arguments = {
+				toLocation = {
+					AppleEventCode = insh; 
+					Type = "Automator.AMDocument"; 
+				}; 
+				atIndex = {
+					AppleEventCode = "at I";
+					Type = NSNumber;
+					Optional = YES;
+				};
+			};
+            CommandClass = NSScriptCommand; 
+            UnnamedArgument = {Optional = NO; Type=NSObject; }; 
+        }; 
+        execute = {
+            AppleEventClassCode = otto; 
+            AppleEventCode = exec; 
+            CommandClass = NSScriptCommand; 
+            UnnamedArgument = {Optional = NO; Type = AMDocument; }; 
+			Type = NSObject; 
+			ResultAppleEventCode = "****";
+        }; 
+        remove = {
+            AppleEventClassCode = otto; 
+            AppleEventCode = remv; 
+            CommandClass = NSScriptCommand; 
+            UnnamedArgument = {Optional = NO; Type = NSObject; }; 
+        }; 
+    }; 
+    Enumerations = {
+        WarningLevels = {
+            AppleEventCode = wlev; 
+            Enumerators = {irreversible = irrv; none = none; reversible = rvbl; }; 
+        }; 
+    }; 
+    Name = Automator; 
+    UsedFeatures = (UnnamedArguments); 
+}
